@@ -1,0 +1,8 @@
+﻿@model List<MvcClient.Controllers.TokenData>
+<h2>Claims</h2>
+
+@foreach (var claim in Model)
+{
+    <dt>@claim.Type</dt>
+    <dd>@claim.Value</dd>
+}

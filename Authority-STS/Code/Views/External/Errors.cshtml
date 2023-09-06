@@ -1,0 +1,29 @@
+﻿@using AuthoritySTS.Services.Factory.Interface
+
+
+<section class="position-relative w-100 bg-body flex-grow-1 hero-container">
+    <div class="right-top-img w-100 position-absolute"></div>
+    <section class="d-flex justify-content-center align-items-center h-100">
+        <section class="box-container bg-white rounded shadow-sm w-100 mx-4 d-flex justify-content-center flex-column p-4">
+            <section class="position-relative d-flex flex-column hero-content-container">
+                <header class="d-flex w-100">
+                    <a href="" class="pr-2 position-relative arrow-position">
+                        <img src="~/images/trigger-sign-in-logo.png" class="mb-3" alt="truvelop" title="Truvelop">
+                    </a>
+                </header>
+                <section class="d-flex justify-content-center align-items-center">
+                    <section class="text-center d-flex justify-content-center align-items-center flex-column p-3">
+                        <img src="~/images/error.png" alt="error" />
+                        <h1 class="my-3 text-uppercase">Error Occured</h1>
+                        <h5 class="mb-3">@ViewData["Error"]</h5>
+                        <a asp-action="Login" asp-controller="Account" asp-route-returnUrl=@ViewData["ReturnUrl"] title="Back to Login" class="font-md">Back to Login</a>
+                    </section>
+                </section>
+                <footer class="text-center">
+                    <div class="position-absolute footer"> © Truvelop. All rights reserved @DateTime.Now.Year</div>
+                </footer>
+            </section>
+        </section>
+    </section>
+    <div class="left-bottom-img"></div>
+</section>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truvelop | Sign in</title>
+    <link rel="icon" type="image/x-icon" href="~/images/favicon.ico" />
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">*@
+    </environment>
+    <environment exclude="Development">
+        @*<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">*@
+        <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+        <link href="~/css/toastr.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/truvelop-style.css" asp-append-version="true" />
+        @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">*@
+    </environment>
+    <script src="~/jquery/jquery-min.js"></script>
+    <script src="~/jquery/popper.js"></script>
+    <script src="~/jquery/bootstrap.min.js"></script>
+    <script src="~/jquery/jquery-1.12.0.min.js"></script>
+    <script src="~/js/toastr.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+@using Microsoft.AspNetCore.Authentication;
+<div>
+    <a asp-action="CallApiUsingUserAccessToken">Call Api Using AccessToken</a>
+</div>
+
+<div>
+    <a asp-action="CallApiUsingClientCredentials">Client Authorization Only</a>
+</div>
+<div>
+    <a asp-action="CallApiUsingUserInfo">Call Api Using UserInfo Endpoint</a>
+</div>
+
+<div>
+    <a asp-action="RenewTokens">Renew Tokens</a>
+</div>
+<br />
+<div>
+    Policy and Role/Claim based Api call
+</div>
+<div>
+    <a asp-action="CallApiUsingDesignerRole">Call Api Using Designer Role</a>
+</div>
+<div>
+    <a asp-action="CallApiUsingClaim">Call Api Using Claim</a>
+</div>
+<div>
+    <a asp-action="CallApiUsingReadWrite">Call Api Using ReadWrite Scope</a>
+</div>
+<br />
+<dt>access token</dt>
+<dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
+
+<dt>refresh token</dt>
+<dd>@await ViewContext.HttpContext.GetTokenAsync("refresh_token")</dd>
+<dt>id token</dt>
+<dd>@await ViewContext.HttpContext.GetTokenAsync("id_token")</dd>
+

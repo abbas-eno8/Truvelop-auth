@@ -1,0 +1,21 @@
+﻿<div class="reset-success-wrapper col-8 col-lg-9 col-md-11 rounded">
+    <div class="instructions-wrapper p-4 d-flex col  justify-content-between">
+        <div class="col-xl-6 col-lg-4 col-sm-5 py-5 text-center font-light d-flex align-items-center flex-column">
+            <div class="text-white my-4">
+                <img src="~/images/icons/icon-error.png" alt="Error" title="Error">
+            </div>
+            <h3 class="text-white mb-4 font-light">Error</h3>
+        </div>
+    </div>
+    <section class="thankyou-msg-wrapper position-absolute d-flex align-items-center justify-content-end">
+        <div class="bg-white p-5 p-lg-5 p-md-2 rounded d-flex flex-column col-11 col-lg-10 col-md-7">
+            <h1 class="header-text pt-4 font-light">Error Occured</h1>
+            <div class="note my-4 p-3 mb-5">
+                @ViewData["Error"]
+                <h6 class="text-right my-3">
+                    <a asp-action="Login">Back To Login</a>
+                </h6>
+            </div>
+        </div>
+    </section>
+</div>

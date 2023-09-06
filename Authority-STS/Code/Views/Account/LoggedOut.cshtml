@@ -1,0 +1,19 @@
+﻿@model AuthoritySTS.Models.AccountViewModels.LoggedOutViewModel
+@{
+    Layout = null;
+}
+<div>
+    <center>
+        <img src="~/images/triggerLoader.gif" />
+    </center>
+    @if (Model.SignOutIframeUrl != null)
+    {
+        <iframe style="display:none" width="0" height="0" class="signout" src="@Model.SignOutIframeUrl"></iframe>
+    }
+</div>
+<script src="~/jquery/jquery-min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () { window.location.href = '@Model.PostLogoutRedirectUri'; }, 1000);
+    });
+</script>

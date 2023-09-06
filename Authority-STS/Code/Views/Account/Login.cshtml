@@ -1,0 +1,196 @@
+﻿@model AuthoritySTS.Models.AccountViewModels.LoginViewModel
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<head>
+
+    <script>
+        $(document).ready(function () {
+            $('.form-control').focusout(function (e) {
+                var id = $(this).attr("id");
+                return CheckLogin(id);
+            });
+            $('.form-control').keyup(function (e) {
+                var id = $(this).attr("id");
+                if (id == "UserName") {
+                    $("#UserName").removeClass("border-danger");
+                }
+                else {
+                    $("#Password").removeClass("border-danger");
+                }
+
+                return;
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        function timedRefresh(timeoutPeriod) {
+            setTimeout(function () {
+                window.location.replace("@ViewData["AngularErrorPageUrl"]");
+            }, timeoutPeriod);
+        }
+    </script>
+    <script type="text/javascript">
+        toastr.options =
+        {
+            timeOut: 3000,
+            closeButton: true
+        }
+        function CheckLogin(id) {
+            var userName = $("#UserName").val();
+            var password = $("#Password").val();
+
+
+            if ((id == "UserName" || id == "All") && userName.trim() == "") {
+                $("#UserName").addClass("border-danger");
+                $("#Password").removeClass("border-danger");
+                if (id == "All") {
+                    toastr.error('Please enter email address');
+                    document.getElementById("UserName").focus();
+                    DisableButon();
+                }
+
+                return false;
+            }
+            //else if ((id == "UserName" || id == "All") && userName.trim() != "") {
+            //    var emailPattern = new RegExp(/^([\w\.\-]+)@@([\w\-]+)((\.(\w){2,3})+)$/);
+            //    if (!emailPattern.test(userName.trim()))
+            //    {
+            //        $("#UserName").addClass("border-danger");
+            //        $("#Password").removeClass("border-danger");
+            //        if (id == "All")
+            //        {
+            //            toastr.error('Please enter valid email address');
+            //            document.getElementById("UserName").focus();
+            //            DisableButon();
+            //        }
+
+            //        return false;
+            //    }
+            //}
+            if ((id == "Password" || id == "All") && password.trim() == "") {
+                $("#Password").addClass("border-danger");
+                $("#UserName").removeClass("border-danger");
+                if (id == "All") {
+                    toastr.error('Please enter password');
+                    document.getElementById("Password").focus();
+                    DisableButon();
+                }
+
+                return false;
+            }
+            return true;
+        }
+
+        function DisableButon() {
+            $('#btnLogin').prop('disabled', true);
+            setTimeout(function () {
+                $('#btnLogin').prop('disabled', false);
+            }, 4000);
+        }
+    </script>
+</head>
+<body onload="JavaScript:timedRefresh(600000);">
+    <!--1140000-->
+    <section class="position-relative w-100 bg-body flex-grow-1 hero-container">
+        <div class="right-top-img w-100 position-absolute"></div>
+        <section class="d-flex justify-content-center align-items-center h-100">
+            <section class="box-container bg-white rounded shadow-sm w-100 mx-3 d-flex justify-content-center flex-column p-3">
+                <section class="position-relative d-flex flex-column hero-content-container">
+                    <header class="d-flex justify-content-between w-100">
+                        <a href="@ViewData["AngularHomeUrl"]" class="pr-2 position-relative arrow-position">
+                            <img src="~/images/trigger-sign-in-logo.png" class="mb-3" alt="truvelop" title="Truvelop">
+                        </a>
+                        <a href="@ViewData["AngularHomeUrl"]" class="d-flex align-items-center position-relative arrow-right">
+                            <span><img src="/images/arrow.png" class="pr-2 cursor-pointer" alt="arrow"></span>
+                            <span class="font-sm white-space">Visit Truvelop.com</span>
+                        </a>
+                    </header>
+                    <section class="position-relative hero-content-container">
+                        <section class="text-center d-flex justify-content-center align-items-center flex-column top-margin">
+                            <div class="success-head-text text-uppercase">sign in</div>
+                            <div class="regular-text mt-2 mb-3">
+                                Hello, there! Sign in and start managing your Truvelop account
+                            </div>
+                            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" method="post" class="row flex-column align-items-center" autocomplete="off">
+                                <input asp-for="UserName" class="form-control rounded mb-3" autofocus maxlength="60" onkeypress="return AvoidSpace(event)" onpaste="return RemoveSpace(this)" placeholder="Please enter email" autocomplete="off" />
+                                <input asp-for="Password" class="form-control rounded" type="password" autocomplete="off" maxlength="15"
+                                       onkeypress="return AvoidSpace(event)" onpaste="return true" oncut="return true" oncopy="return true" placeholder="Please enter password" />
+                                @if (ViewBag.Message != null)
+                                {
+                                    <script type="text/javascript">
+                                        window.onload = function ()
+                                        {
+                                            toastr.error("@ViewBag.Message");
+                                            return false;
+                                        };
+                                    </script>
+                                }
+                                <button id="btnLogin" type="submit" title="Submit" onclick="JavaScript: return CheckLogin('All');" class="btn btn-login text-uppercase text-center my-3">
+                                    submit
+                                </button>
+                                <section class="d-flex align-items-center my-1">
+                                    <div class="regular-text">Forgot Password?</div>
+                                    <a href="@ViewData["AngularResetPasswordUrl"]" title="Reset" class="ml-2 font-md">Reset</a>
+                                </section>
+                            </form>
+                        </section>
+
+                        <section class="d-flex align-items-center justify-content-center">
+
+                            <a type="button"
+                               class="btn btn-default rounded-0 d-flex align-items-center m-3"
+                               asp-route-returnUrl=@Model.ReturnUrl
+                               asp-action="ExternalLogin"
+                               asp-route-provider="Google"
+                               asp-controller="External">
+                                <div class="bg-white">
+                                    <img class="btn-g-logo" src="/images/g-logo.png" alt="google">
+                                </div>
+                                <div class="btn-text">Sign in with Google</div>
+                            </a>
+                            <div class="cursor-pointer icon-box a-bg-color d-flex justify-content-center align-items-center" title="AzureAD" data-toggle="modal" data-target="#myModal">
+                                <img src="/images/azureAD.png" class="azureAD-icon" alt="azureAD">
+                            </div>
+
+                        </section>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header p-3 d-flex align-items-center justify-content-between">
+                                        <h4 class="modal-title primary-text">Azure AD</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <form class="row flex-column align-items-center"
+                                              asp-route-returnurl=@Model.ReturnUrl
+                                              asp-action="AzureAdLogin"
+                                              asp-controller="External"
+                                              method="post">
+
+                                            <input asp-for="UserName" class="form-control rounded mb-3" autofocus maxlength="60" onkeypress="return AvoidSpace(event)" onpaste="return RemoveSpace(this)" placeholder="Please enter email" />
+
+                                            <section class="d-flex justify-content-center align-items-center mt-2">
+                                                <button type="submit" title="Submit" class="text-uppercase btn btn-primary px-3 py-1 font-semibold">Submit</button>
+                                            </section>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <footer class="text-center">
+                        <div class="position-absolute footer"> © Truvelop. All rights reserved @DateTime.Now.Year</div>
+                    </footer>
+                </section>
+            </section>
+        </section>
+        <div class="left-bottom-img"></div>
+    </section>
+
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }
+</body>
+

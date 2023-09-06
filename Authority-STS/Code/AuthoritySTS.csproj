@@ -1,0 +1,146 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <UserSecretsId>aspnet-AuthoritySTS-B8611B79-3F30-471B-806B-DDF6EF20EE03</UserSecretsId>
+    <PublishWithAspNetCoreTargetManifest>true</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="LocalizationResources\**" />
+    <Compile Remove="Models\AdAccountViewModels\**" />
+    <Compile Remove="Models\ManageViewModels\**" />
+    <Compile Remove="Views\Manage\**" />
+    <Content Remove="LocalizationResources\**" />
+    <Content Remove="Models\AdAccountViewModels\**" />
+    <Content Remove="Models\ManageViewModels\**" />
+    <Content Remove="Views\Manage\**" />
+    <EmbeddedResource Remove="LocalizationResources\**" />
+    <EmbeddedResource Remove="Models\AdAccountViewModels\**" />
+    <EmbeddedResource Remove="Models\ManageViewModels\**" />
+    <EmbeddedResource Remove="Views\Manage\**" />
+    <None Remove="LocalizationResources\**" />
+    <None Remove="Models\AdAccountViewModels\**" />
+    <None Remove="Models\ManageViewModels\**" />
+    <None Remove="Views\Manage\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\AccountViewModels\AddPhoneNumberAdViewModel.cs" />
+    <Compile Remove="Models\AccountViewModels\LoginWith2faViewModel.cs" />
+    <Compile Remove="Models\AccountViewModels\LoginWithRecoveryCodeViewModel.cs" />
+    <Compile Remove="Models\AccountViewModels\RegisterIDPViewmodel.cs" />
+    <Compile Remove="Models\AccountViewModels\VerifyPhoneNumberAdViewModel.cs" />
+    <Compile Remove="Services\BLL\ErrorManger.cs" />
+    <Compile Remove="Services\BLL\Notification.cs" />
+    <Compile Remove="Services\BLL\PasswordRuleManger.cs" />
+    <Compile Remove="Services\BLL\SmsSender.cs" />
+    <Compile Remove="Services\BLL\ValidateData.cs" />
+    <Compile Remove="Services\Interface\IErrorManger.cs" />
+    <Compile Remove="Services\Interface\INotification.cs" />
+    <Compile Remove="Services\Interface\IPasswordRuleManger.cs" />
+    <Compile Remove="Services\Interface\ISmsSender.cs" />
+    <Compile Remove="Services\Interface\IValidateData.cs" />
+    <Compile Remove="Services\TwoFactorTokenService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Account\ExternalLogin.cshtml" />
+    <Content Remove="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Remove="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Remove="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Remove="Views\Account\Lockout.cshtml" />
+    <Content Remove="Views\Account\LoginWith2fa.cshtml" />
+    <Content Remove="Views\Account\LoginWithRecoveryCode.cshtml" />
+    <Content Remove="Views\Account\Logout.cshtml" />
+    <Content Remove="Views\Account\RegisterIDP.cshtml" />
+    <Content Remove="Views\Account\SignedOut.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="1Authority-2018062618.log" />
+    <None Remove="1Authority-2018062619.log" />
+    <None Remove="1Authority-2018062711.log" />
+    <None Remove="1Authority-2018062712.log" />
+    <None Remove="1Authority-2018062713.log" />
+    <None Remove="1Authority-2018062714.log" />
+    <None Remove="1Authority-2018062715.log" />
+    <None Remove="1Authority-2018062716.log" />
+    <None Remove="1Authority-2018062717.log" />
+    <None Remove="1Authority-2018062718.log" />
+    <None Remove="1Authority-2018062719.log" />
+    <None Remove="1Authority-2018062810.log" />
+    <None Remove="1Authority-2018062811.log" />
+    <None Remove="1Authority-2018062812.log" />
+    <None Remove="1Authority-2018062813.log" />
+    <None Remove="1Authority-2018062818.log" />
+    <None Remove="1Authority-2018062819.log" />
+    <None Remove="1Authority-2018062910.log" />
+    <None Remove="1Authority-2018062911.log" />
+    <None Remove="1Authority-2018062912.log" />
+    <None Remove="1Authority-2018062913.log" />
+    <None Remove="identityserver.pfx" />
+    <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Remove="SelfSign.pfx" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+<PackageReference Include="IdentityServer4" Version="3.0.0" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="2.2.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" PrivateAssets="All" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="System.DirectoryServices" Version="4.5.0" />
+    <PackageReference Include="Twilio" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="identityserver.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelfSign.pfx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\External\Errors.cshtml" />
+    <None Include="wwwroot\fonts\fonts\montserrat-bold\montserrat-bold-webfont.svg" />
+    <None Include="wwwroot\fonts\fonts\montserrat-bold\montserrat-bold-webfont.woff2" />
+    <None Include="wwwroot\fonts\fonts\montserrat-light\montserrat-light-webfont.svg" />
+    <None Include="wwwroot\fonts\fonts\montserrat-light\montserrat-light-webfont.woff2" />
+    <None Include="wwwroot\fonts\fonts\montserrat-medium\montserrat-medium-webfont.svg" />
+    <None Include="wwwroot\fonts\fonts\montserrat-medium\montserrat-medium-webfont.woff2" />
+    <None Include="wwwroot\fonts\fonts\montserrat-regular\montserrat-regular-webfont.svg" />
+    <None Include="wwwroot\fonts\fonts\montserrat-regular\montserrat-regular-webfont.woff2" />
+    <None Include="wwwroot\fonts\fonts\montserrat-semibold\montserrat-semibold-webfont.svg" />
+    <None Include="wwwroot\fonts\fonts\montserrat-semibold\montserrat-semibold-webfont.woff2" />
+    <None Include="wwwroot\jquery\bootstrap.min.js" />
+    <None Include="wwwroot\jquery\jquery-1.12.0.min.js" />
+    <None Include="wwwroot\jquery\jquery-min.js" />
+    <None Include="wwwroot\jquery\popper.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Logging\Logging.csproj" />
+  </ItemGroup>
+
+</Project>

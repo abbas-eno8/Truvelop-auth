@@ -1,0 +1,31 @@
+﻿@using AuthoritySTS.Services.Factory.Interface
+
+<section class="position-relative w-100 bg-body flex-grow-1 hero-container">
+    <div class="right-top-img w-100 position-absolute"></div>
+    <section class="d-flex justify-content-center align-items-center h-100">
+        <section class="box-container bg-white rounded shadow-sm w-100 mx-4 d-flex justify-content-center flex-column p-4">
+            <header class="d-flex w-100">
+                <a href="@ViewData["AngularHomeUrl"]" class="pr-2 position-relative arrow-position">
+                    <img src="~/images/trigger-sign-in-logo.png" class="mb-3" alt="truvelop" title="Truvelop">
+                </a>
+            </header>
+            <section class="position-relative hero-content-container">
+                <section class="text-center d-flex justify-content-center align-items-center flex-column p-5">
+                    <h1 class="alert-danger w-100 mb-0 p-2"><span>Invalid Link</span></h1>
+                    <div class="note mb-4 p-3">
+                        <span class="font-md">
+                            @ViewData["Error"]
+                        </span>
+                    </div>
+                    <section class="d-flex align-items-center bottom-margin">
+                        <a href="@ViewData["AuthUrl"]" title="Return to Login" class="font-md">Return to Login</a>
+                    </section>
+                </section>
+                <footer class="text-center">
+                    <div class="position-absolute footer"> © Truvelop. All rights reserved @DateTime.Now.Year</div>
+                </footer>
+            </section>
+        </section>
+    </section>
+    <div class="left-bottom-img"></div>
+</section>
